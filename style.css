@@ -213,6 +213,11 @@ body {
   color: #666;
 }
 
+.product-card.selected {
+  border: 3px solid #000;
+  background: #f0f8ff;
+}
+
 /* selected products */
 .selected-products {
   margin: 40px 0;
@@ -252,4 +257,20 @@ body {
 
 .generate-btn i {
   margin-right: 8px;
+}
+
+/* product tooltip */
+.product-tooltip {
+  max-width: 320px;
+  background: #fffbe8;
+  color: #333;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 15px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  transition: opacity 0.2s;
+  opacity: 0.97;
+  line-height: 1.5;
 }
