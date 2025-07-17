@@ -201,6 +201,11 @@ body {
   flex-direction: column;
   justify-content: center;
   min-height: 110px;
+  /* Add colored background for product text */
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
 }
 
 .product-card h3 {
@@ -252,4 +257,30 @@ body {
 
 .generate-btn i {
   margin-right: 8px;
+}
+
+/* Product tooltip styling */
+.product-tooltip {
+  background: #333;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.4;
+  max-width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  word-wrap: break-word;
+  border: 2px solid #555;
+}
+
+/* Add hover effect to product cards for better interactivity */
+.product-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.product-card {
+  transition: all 0.3s ease;
 }
