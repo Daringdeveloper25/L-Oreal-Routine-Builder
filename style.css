@@ -213,11 +213,6 @@ body {
   color: #666;
 }
 
-.product-card.selected {
-  border: 3px solid #000;
-  background: #f0f8ff;
-}
-
 /* selected products */
 .selected-products {
   margin: 40px 0;
@@ -257,57 +252,4 @@ body {
 
 .generate-btn i {
   margin-right: 8px;
-}
-
-/* product tooltip */
-.product-tooltip {
-  max-width: 320px;
-  background: #fffbe8;
-  color: #333;
-  border: 2px solid #000;
-  border-radius: 8px;
-  padding: 16px;
-  font-size: 15px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  pointer-events: none;
-  transition: opacity 0.2s;
-  opacity: 0.97;
-  line-height: 1.5;
-}
-
-/* RTL support for layout */
-body.rtl,
-body[dir="rtl"] {
-  direction: rtl;
-}
-
-body.rtl .products-grid,
-body[dir="rtl"] .products-grid {
-  flex-direction: row-reverse;
-}
-
-body.rtl .selected-products,
-body[dir="rtl"] .selected-products {
-  text-align: right;
-}
-
-body.rtl .chatbox,
-body[dir="rtl"] .chatbox {
-  text-align: right;
-}
-
-body.rtl .chat-form,
-body[dir="rtl"] .chat-form {
-  flex-direction: row-reverse;
-}
-
-body.rtl .product-card,
-body[dir="rtl"] .product-card {
-  flex-direction: row-reverse;
-}
-
-body.rtl .product-tooltip,
-body[dir="rtl"] .product-tooltip {
-  left: auto !important;
-  right: 10px !important;
 }
