@@ -283,6 +283,9 @@ chatForm.addEventListener("submit", async (e) => {
         content: data.choices[0].message.content,
       });
 
+      // Log the assistant's message content for debugging
+      console.log("Assistant message:", data.choices[0].message.content);
+
       // Display the whole conversation in the chat window
       chatWindow.innerHTML = chatHistory
         .filter((msg) => msg.role !== "system")
