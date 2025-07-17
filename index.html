@@ -17,24 +17,6 @@
 
   <body>
     <div class="page-wrapper">
-      <!-- RTL Toggle Button -->
-      <button
-        id="rtlToggle"
-        style="
-          position: fixed;
-          top: 16px;
-          right: 16px;
-          z-index: 1001;
-          background: #fff;
-          border: 2px solid #000;
-          border-radius: 8px;
-          padding: 8px 16px;
-          cursor: pointer;
-        "
-      >
-        Switch RTL
-      </button>
-
       <!------- Header / Branding ------->
       <header class="site-header">
         <img src="img/loreal-logo.png" alt="L'Oréal Logo" class="logo" />
@@ -106,18 +88,5 @@
     <!-- secrets.js can be removed when using Cloudflare Workers for API requests -->
     <script src="secrets.js"></script>
     <script src="script.js"></script>
-    <script>
-      // Beginner-friendly: Toggle RTL/LTR layout
-      const rtlToggle = document.getElementById("rtlToggle");
-      rtlToggle.addEventListener("click", () => {
-        const html = document.documentElement;
-        html.dir = html.dir === "rtl" ? "ltr" : "rtl";
-        localStorage.setItem("siteDir", html.dir);
-      });
-      // Restore RTL/LTR on page load
-      if (localStorage.getItem("siteDir")) {
-        document.documentElement.dir = localStorage.getItem("siteDir");
-      }
-    </script>
   </body>
 </html>

@@ -377,5 +377,39 @@ generateRoutineBtn.addEventListener("click", async () => {
   }
 });
 
+/* RTL support: detect language and toggle layout direction */
+function updateDirectionByLang(lang) {
+  // List of RTL language codes
+  const rtlLangs = ["ar", "he", "fa", "ur"];
+  const isRTL = rtlLangs.includes(lang.split("-")[0]);
+  // Set direction on <html> and main containers
+  document.documentElement.dir = isRTL ? "rtl" : "ltr";
+  document.body.dir = isRTL ? "rtl" : "ltr";
+  // Add/remove RTL class for styling
+  document.body.classList.toggle("rtl", isRTL);
+  // Update product grid and chatbox direction
+  const productsGrid = document.getElementById("productsContainer");
+  if (productsGrid) productsGrid.dir = isRTL ? "rtl" : "ltr";
+  const selectedProductsSection = document.getElementById(
+    "selectedProductsList"
+  );
+  if (selectedProductsSection)
+    selectedProductsSection.dir = isRTL ? "rtl" : "ltr";
+  const chatBox = document.querySelector(".chatbox");
+  if (chatBox) chatBox.dir = isRTL ? "rtl" : "ltr";
+}
+
+// Detect language on page load
+updateDirectionByLang(document.documentElement.lang || navigator.language);
+
+// Listen for language changes (if user changes <html lang> dynamically)
+const langObserver = new MutationObserver(() => {
+  updateDirectionByLang(document.documentElement.lang || navigator.language);
+});
+langObserver.observe(document.documentElement, {
+  attributes: true,
+  attributeFilter: ["lang"],
+});
+
 // On initial page load, show selected products from localStorage
 loadProducts().then(updateSelectedProductsList);

@@ -275,52 +275,39 @@ body {
   line-height: 1.5;
 }
 
-/* RTL support for main layout */
-:root:dir(rtl) body,
-body:dir(rtl) {
+/* RTL support for layout */
+body.rtl,
+body[dir="rtl"] {
   direction: rtl;
 }
 
-/* RTL for products grid */
-.products-grid:dir(rtl) {
+body.rtl .products-grid,
+body[dir="rtl"] .products-grid {
   flex-direction: row-reverse;
 }
 
-/* RTL for product cards */
-.product-card:dir(rtl) {
-  flex-direction: row-reverse;
+body.rtl .selected-products,
+body[dir="rtl"] .selected-products {
   text-align: right;
 }
 
-/* RTL for selected products section */
-.selected-products:dir(rtl) {
-  text-align: right;
-}
-#selectedProductsList:dir(rtl) {
-  flex-direction: row-reverse;
-}
-
-/* RTL for chatbox and chat window */
-.chatbox:dir(rtl),
-.chat-window:dir(rtl) {
-  text-align: right;
-}
-.chat-form:dir(rtl) {
-  flex-direction: row-reverse;
-}
-.chat-form input:dir(rtl) {
+body.rtl .chatbox,
+body[dir="rtl"] .chatbox {
   text-align: right;
 }
 
-/* RTL for product tooltip */
-.product-tooltip:dir(rtl) {
+body.rtl .chat-form,
+body[dir="rtl"] .chat-form {
+  flex-direction: row-reverse;
+}
+
+body.rtl .product-card,
+body[dir="rtl"] .product-card {
+  flex-direction: row-reverse;
+}
+
+body.rtl .product-tooltip,
+body[dir="rtl"] .product-tooltip {
   left: auto !important;
   right: 10px !important;
-  text-align: right;
-}
-
-/* RTL for remove button in selected products */
-.product-card:dir(rtl) .remove-selected-btn {
-  right: auto;
-  left: 8px;
 }
