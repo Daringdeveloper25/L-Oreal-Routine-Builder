@@ -241,14 +241,21 @@ chatForm.addEventListener("submit", async (e) => {
   // Show loading message while waiting for response
   chatWindow.innerHTML = "Thinking...";
 
+  // Check API key before making request
+  let apiKey;
+  try {
+    apiKey = getOpenAIKeyOrError();
+  } catch {
+    return;
+  }
+
   // Send request to OpenAI API using async/await
   try {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Use the API key from secrets.js
-        Authorization: `Bearer ${OPENAI_API_KEY}`,
+        Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         model: "gpt-4o",
@@ -299,7 +306,18 @@ chatForm.addEventListener("submit", async (e) => {
   The API key for OpenAI is stored in secrets.js as OPENAI_API_KEY.
   Make sure secrets.js is loaded in index.html before script.js.
   We use this variable when making requests to the OpenAI API.
+  If the API key is missing, show an error message.
 */
+
+// Helper function to check API key before making requests
+function getOpenAIKeyOrError() {
+  if (typeof OPENAI_API_KEY === "undefined" || !OPENAI_API_KEY) {
+    chatWindow.innerHTML =
+      "Error: OpenAI API key is missing. Please make sure secrets.js is loaded and contains your API key.";
+    throw new Error("OpenAI API key missing");
+  }
+  return OPENAI_API_KEY;
+}
 
 /* This function sends selected products to OpenAI and shows the routine in the chat */
 generateRoutineBtn.addEventListener("click", async () => {
@@ -340,14 +358,21 @@ generateRoutineBtn.addEventListener("click", async () => {
   // Show loading message
   chatWindow.innerHTML = "Generating your routine...";
 
+  // Check API key before making request
+  let apiKey;
+  try {
+    apiKey = getOpenAIKeyOrError();
+  } catch {
+    return;
+  }
+
   // Send request to OpenAI API
   try {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // We use the API key from secrets.js here
-        Authorization: `Bearer ${OPENAI_API_KEY}`,
+        Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         model: "gpt-4o",
