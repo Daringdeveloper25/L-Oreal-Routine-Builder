@@ -220,7 +220,8 @@ let chatHistory = [
   {
     role: "system",
     content:
-      "You are a helpful beauty advisor. Answer questions about products and routines. Be friendly and explain things clearly for a beginner.",
+      // Instruct the AI to include current, real-world info and show links/citations
+      "You are a helpful beauty advisor. Answer questions about products and routines using current, real-world information. When possible, include visible links or citations to reputable sources (such as official brand sites, medical resources, or product pages). Format links so users can click them. If you reference facts, show a source or a web search link (e.g. https://www.google.com/search?q=PRODUCT+NAME). Be friendly and explain things clearly for a beginner.",
   },
 ];
 
@@ -327,7 +328,8 @@ generateRoutineBtn.addEventListener("click", async () => {
     {
       role: "system",
       content:
-        "You are a helpful beauty advisor. Suggest a personalized routine using the selected products. Be friendly and explain the steps clearly for a beginner.",
+        // Instruct the AI to include current, real-world info and show links/citations
+        "You are a helpful beauty advisor. Suggest a personalized routine using the selected products and current, real-world information. When possible, include visible links or citations to reputable sources (such as official brand sites, medical resources, or product pages). Format links so users can click them. If you reference facts, show a source or a web search link (e.g. https://www.google.com/search?q=PRODUCT+NAME). Be friendly and explain the steps clearly for a beginner.",
     },
     {
       role: "user",
